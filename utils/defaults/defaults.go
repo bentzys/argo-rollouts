@@ -45,8 +45,6 @@ const (
 	// DefaultMetricCleanupDelay is the default time to delay metrics removal upon object removal, gives time for metrics
 	// to be collected
 	DefaultMetricCleanupDelay = int32(65)
-	// DefaultCanaryMinReplicas is the minimum pods in a Replicaset for Canary traffic routing
-	DefaultCanaryMinReplicas = int32(1)
 )
 
 const (
@@ -68,7 +66,6 @@ var (
 	targetGroupBindingAPIVersion = DefaultTargetGroupBindingAPIVersion
 	appmeshCRDVersion            = DefaultAppMeshCRDVersion
 	defaultMetricCleanupDelay    = DefaultMetricCleanupDelay
-	defaultCanaryMinReplicas     = DefaultCanaryMinReplicas
 )
 
 const (
@@ -320,13 +317,4 @@ func GetMetricCleanupDelaySeconds() time.Duration {
 // SetMetricCleanupDelaySeconds sets the metric cleanup delay in seconds
 func SetMetricCleanupDelaySeconds(seconds int32) {
 	defaultMetricCleanupDelay = seconds
-}
-// GetDefaultCanaryMinReplicas returns the minimum pods in a Replicaset for Canary traffic routing
-func GetDefaultCanaryMinReplicas() int32 {
-	return defaultCanaryMinReplicas
-}
-
-// SetDefaultCanaryMinReplicas sets the minimum pods in a Replicaset for Canary traffic routing
-func SetDefaultCanaryMinReplicas(replicas int32) {
-	defaultCanaryMinReplicas = replicas
 }
